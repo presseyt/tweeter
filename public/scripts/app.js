@@ -93,6 +93,21 @@ function renderTweets(){
 
 $(document).ready(function(){
   renderTweets();
+
+  $('.new-tweet form').on("submit", $(this).serialize(), function(event){
+    event.preventDefault();
+    // const data = {text: $(this)[0][0].value}; //bad
+    const data = $(this).serialize();
+    console.log(data);
+    $.ajax({url:"/tweets",
+            method:"POST",
+            data: data,
+            success(){
+              console.log("success");
+            }
+    });
+  });
+
 });
 
 
