@@ -56,19 +56,20 @@ $(document).ready(function(){
 
   $('.new-tweet form').on("submit", $(this).serialize(), function(event){
     event.preventDefault();
-    // const data = {text: $(this)[0][0].value}; //bad
+
     const data = $(this).serialize();
     const text = $(this).find('textarea').val();
 
-
     if (text.length === 0){
-      console.log('error - cant be empty');
+      $('.error').text(`Tweet is empty`);
     } else if (text.length > 140){
-      console.log('error - too long');
+      $('.error').text('Tweet too long')
     } else {
       $.post("/tweets", data);
       console.log('sent:', data);
     }
+
+    //here is some ajax code that  will post data:
     // $.ajax({
     //   url: "/tweets",
     //   method: "POST",

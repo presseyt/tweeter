@@ -24,3 +24,8 @@
 .tooLong{
   color: red;
 }
+
+p.error{
+  display: inline;
+  color: red;
+}
