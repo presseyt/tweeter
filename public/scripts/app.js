@@ -16,6 +16,25 @@ function escape(str) {
   return div.innerHTML;
 }
 
+function doSomethingToDates(tweetDate){
+  let elapsed = Date.now() - tweetDate - 815000;
+  console.log(elapsed);
+  elapsed /= 1000;
+  if (elapsed < 60) return `${Math.floor(elapsed)} seconds ago`;
+  elapsed /=  60;
+  if (elapsed < 60) return `${Math.floor(elapsed)} minutes ago`;
+  elapsed /=  60;
+  if (elapsed < 24) return `${Math.floor(elapsed)} hours ago`;
+  elapsed /=  24;
+  if (elapsed < 30) return `${Math.floor(elapsed)} days ago`;
+  elapsed /= 30;
+  if (elapsed < 12) return `${Math.floor(elapsed)} months ago`;
+  elapsed /=  12;
+  if (elapsed < 10) return `${Math.floor(elapsed)} years ago`;
+  elapsed /=  10;
+  return `${Math.floor(elapsed)} decades ago`;
+}
+
 function createTweetElement(tweetInfo){
   return $(`
     <article class="tweet-container">
@@ -28,7 +47,7 @@ function createTweetElement(tweetInfo){
         <p>${escape(tweetInfo.content.text)}</p>
       </section>
       <footer class="tweet-footer">
-        Created: ${escape(tweetInfo.created_at)}
+        Created: ${doSomethingToDates(tweetInfo.created_at)}
         <span class="tweet-actions">
              🚩 🔃 💖
         </span>
@@ -38,14 +57,19 @@ function createTweetElement(tweetInfo){
 }
 
 function renderTweets(data){
-  $tweets = data.map(x => createTweetElement(x));
+  //newest first
+  $tweets = data.map(x => createTweetElement(x)).reverse();
   $('#tweets-container').append($tweets);
 }
 
 function loadTweets(){
   $.ajax({
     url: "/tweets",
-    success: renderTweets
+    success(data){
+      //clear all tweets, then render new tweets
+      $('#tweets-container').empty();
+      renderTweets(data);
+    }
   });
 }
 
@@ -54,19 +78,26 @@ $(document).ready(function(){
   //renderTweets(data);
   loadTweets();
 
-  $('.new-tweet form').on("submit", $(this).serialize(), function(event){
+  $('.new-tweet form').on("submit", function(event){
+
     event.preventDefault();
 
     const data = $(this).serialize();
     const text = $(this).find('textarea').val();
 
     if (text.length === 0){
-      $('.error').text(`Tweet is empty`);
+      $('.error').text('Tweet is empty');
     } else if (text.length > 140){
-      $('.error').text('Tweet too long')
+      $('.error').text('Tweet too long');
     } else {
-      $.post("/tweets", data);
-      console.log('sent:', data);
+      $.post("/tweets", data, () => {
+        //clear text and any error message
+        $(this).find('textarea').val('');
+        $('.error').text('');
+
+        //reload all the tweets!
+        loadTweets();
+      });
     }
 
     //here is some ajax code that  will post data:
