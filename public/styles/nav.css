@@ -19,3 +19,8 @@
   position: absolute;
   line-height: 80px;
 }
+
+#toggle-composition{
+  float: right;
+  margin: 28px;
+}

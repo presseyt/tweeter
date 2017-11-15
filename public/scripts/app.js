@@ -78,6 +78,15 @@ $(document).ready(function(){
   //renderTweets(data);
   loadTweets();
 
+  $('#toggle-composition').on("click", function(event){
+    if ($('.new-tweet').is(":visible")){
+      $('.new-tweet').hide(550);
+    } else {
+      $('.new-tweet').show(350);
+      $('.new-tweet textarea').focus();
+    }
+  });
+
   $('.new-tweet form').on("submit", function(event){
 
     event.preventDefault();
