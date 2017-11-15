@@ -1,5 +1,5 @@
 
-#tweets-container article{
+#tweets-container .tweet-container{
   border: solid #ccc thin;
   border-radius: 10px;
   margin: 2em;
@@ -7,7 +7,7 @@
   opacity: 0.75;
 }
 
-#tweets-container header{
+#tweets-container .tweet-header{
   height: 80px;
   background-color: #eee;
   padding: 10px;
@@ -16,20 +16,20 @@
   border-top-right-radius: 10px;
 }
 
-#tweets-container img{
+#tweets-container .profile-pic{
   height: 60px;
   width: 60px;
 
   display: inline-block;
 }
 
-#tweets-container h2{
+#tweets-container .profile-name{
   margin: 0;
   vertical-align: top;
   display: inline-block;
 }
 
-#tweets-container span{
+#tweets-container .profile-handle{
   float: right;
 }
 
@@ -49,22 +49,23 @@
   line-height: normal;        /*for vertical align*/
 }
 
-#tweets-container footer{
+#tweets-container .tweet-footer{
   opacity: 1;
   padding: 10px;
   height: 40px;
   border-top: solid #ccc thin;
 }
 
-#tweets-container footer span{
+#tweets-container .tweet-actions{
+  float: right;
   opacity: 0.1;
 }
 
-#tweets-container footer span:hover{
+#tweets-container .tweet-actions:hover{
   opacity: 1;
 }
 
-#tweets-container article:hover{
+#tweets-container .tweet-container:hover{
   opacity: 1;
   border-color: #999;
 }

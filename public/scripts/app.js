@@ -56,23 +56,24 @@ var data = [
 
 function createTweetElement(tweetInfo){
 
-return $(`<article>
-            <header>
-              <img src=${tweetInfo.user.avatars.regular}>
-              <h2>${tweetInfo.user.name}</h2>
-              <span>${tweetInfo.user.handle}</span>
-            </header>
-              <section>
-                <p>${tweetInfo.content.text}</p>
-              </section>
-              <footer>
-                Created: ${tweetInfo.created_at}
-                <span>
-                     🚩 🔃 💖
-                </span>
-              </footer>
-            </article> `);
-
+  return $(`
+    <article class="tweet-container">
+      <header class="tweet-header">
+        <img class="profile-pic" src=${tweetInfo.user.avatars.regular}>
+        <h2 class="profile-name">${tweetInfo.user.name}</h2>
+        <span class="profile-handle">${tweetInfo.user.handle}</span>
+      </header>
+      <section>
+        <p>${tweetInfo.content.text}</p>
+      </section>
+      <footer class="tweet-footer">
+        Created: ${tweetInfo.created_at}
+        <span class="tweet-actions">
+             🚩 🔃 💖
+        </span>
+      </footer>
+    </article>
+  `);
 }
 
 
