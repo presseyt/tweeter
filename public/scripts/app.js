@@ -45,10 +45,7 @@ function renderTweets(data){
 function loadTweets(){
   $.ajax({
     url: "/tweets",
-    success(data){
-      console.log('loaded tweets:', data);
-      renderTweets(data);
-    }
+    success: renderTweets
   });
 }
 
@@ -61,15 +58,25 @@ $(document).ready(function(){
     event.preventDefault();
     // const data = {text: $(this)[0][0].value}; //bad
     const data = $(this).serialize();
-    console.log(data);
-    $.ajax({
-      url: "/tweets",
-      method: "POST",
-      data: data,
-      success(){
-        console.log("success");
-      }
-    });
+    const text = $(this).find('textarea').val();
+
+
+    if (text.length === 0){
+      console.log('error - cant be empty');
+    } else if (text.length > 140){
+      console.log('error - too long');
+    } else {
+      $.post("/tweets", data);
+      console.log('sent:', data);
+    }
+    // $.ajax({
+    //   url: "/tweets",
+    //   method: "POST",
+    //   data: data,
+    //   success(){
+    //     console.log("success");
+    //   }
+    // });
   });
 
 });
