@@ -1,0 +1,77 @@
+
+#tweets-container article{
+  border: solid #ccc thin;
+  border-radius: 10px;
+  margin: 2em;
+
+  opacity: 0.75;
+}
+
+#tweets-container header{
+  height: 80px;
+  background-color: #eee;
+  padding: 10px;
+
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#tweets-container img{
+  height: 60px;
+  width: 60px;
+
+  display: inline-block;
+}
+
+#tweets-container h2{
+  margin: 0;
+  vertical-align: top;
+  display: inline-block;
+}
+
+#tweets-container span{
+  float: right;
+}
+
+#tweets-container section{
+  opacity: 1;
+  padding: 10px;
+  height: 100px;
+  line-height: 80px;  /*must be height - 2 * padding*/. /*for vertical align*/
+}
+
+#tweets-container section p{
+  margin: 0;
+  font-size: 1.2em;
+
+  display: inline-block;      /*for vertical align*/
+  vertical-align: middle;     /*for vertical align*/ /*why is this so hard?*/
+  line-height: normal;        /*for vertical align*/
+}
+
+#tweets-container footer{
+  opacity: 1;
+  padding: 10px;
+  height: 40px;
+  border-top: solid #ccc thin;
+}
+
+#tweets-container footer span{
+  opacity: 0.1;
+}
+
+#tweets-container footer span:hover{
+  opacity: 1;
+}
+
+#tweets-container article:hover{
+  opacity: 1;
+  border-color: #999;
+}
+
+
+
+
+
+
+

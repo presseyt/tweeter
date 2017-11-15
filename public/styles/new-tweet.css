@@ -10,7 +10,7 @@
 }
 
 .new-tweet h2 {
- border-bottom: solid black 1px;
+ border-bottom: solid black thin;
 }
 
 .new-tweet textarea{
@@ -19,4 +19,8 @@
 
 .counter{
   float: right;
+}
+
+.tooLong{
+  color: red;
 }
