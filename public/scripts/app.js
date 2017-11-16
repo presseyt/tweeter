@@ -17,7 +17,7 @@ function escape(str) {
 }
 
 function doSomethingToDates(tweetDate){
-  let elapsed = Date.now() - tweetDate - 815000;
+  let elapsed = Date.now() - tweetDate;
   console.log(elapsed);
   elapsed /= 1000;
   if (elapsed < 60) return `${Math.floor(elapsed)} seconds ago`;
