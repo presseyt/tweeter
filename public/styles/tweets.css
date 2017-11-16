@@ -37,7 +37,7 @@
   opacity: 1;
   padding: 10px;
   height: 100px;
-  line-height: 80px;  /*must be height - 2 * padding*/. /*for vertical align*/
+  line-height: 80px;  /*must be height - 2 * padding*/ /*for vertical align*/
 }
 
 #tweets-container section p{

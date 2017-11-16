@@ -1,37 +1,35 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
 
+function displayDatesAsText(tweetDate){
+  const time = [
+    {measurment: "millisecond", quantity: 1000},
+    {measurment: "second", quantity: 60},
+    {measurment: "minute", quantity: 60},
+    {measurment: "hour", quantity: 24},
+    {measurment: "day", quantity: 7},
+    {measurment: "week", quantity: 4},
+    {measurment: "month", quantity: 12},
+    {measurment: "year", quantity: 10},
+    {measurment: "decade", quantity: 10},
+    {measurment: "century", quantity: 10}
+  ];
+  let elapsed = Date.now() - tweetDate;
 
+  if (elapsed < 0) {
+    return "in the future!";  //just to be safe ;)
+  }
+  for(measure of time){
+    if (elapsed < measure.quantity){
+      return `${Math.floor(elapsed)} ${measure.measurment}${elapsed >= 2 ? "s" : ""} ago`;
+    }
+    elapsed /= measure.quantity;
+  }
+  return "I dunno :o";
+}
 
 function escape(str) {
-  //given to us by lhl.  Used to prevent people from saying their name is
-    // `<script> alert('hi') </script`
-    //and messing up our code.
-  //note that using jQuery .text() is a safe way to do this as well.
   var div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
-}
-
-function doSomethingToDates(tweetDate){
-  let elapsed = Date.now() - tweetDate;
-  elapsed /= 1000;
-  if (elapsed < 60) return `${Math.floor(elapsed)} seconds ago`;
-  elapsed /=  60;
-  if (elapsed < 60) return `${Math.floor(elapsed)} minutes ago`;
-  elapsed /=  60;
-  if (elapsed < 24) return `${Math.floor(elapsed)} hours ago`;
-  elapsed /=  24;
-  if (elapsed < 30) return `${Math.floor(elapsed)} days ago`;
-  elapsed /= 30;
-  if (elapsed < 12) return `${Math.floor(elapsed)} months ago`;
-  elapsed /=  12;
-  if (elapsed < 10) return `${Math.floor(elapsed)} years ago`;
-  elapsed /=  10;
-  return `${Math.floor(elapsed)} decades ago`;
 }
 
 function createTweetElement(tweetInfo){
@@ -46,7 +44,7 @@ function createTweetElement(tweetInfo){
         <p>${escape(tweetInfo.content.text)}</p>
       </section>
       <footer class="tweet-footer">
-        Created: ${doSomethingToDates(tweetInfo.created_at)}
+        Created: ${displayDatesAsText(tweetInfo.created_at)}
         <span class="tweet-actions">
              🚩 🔃 💖
         </span>
@@ -56,7 +54,6 @@ function createTweetElement(tweetInfo){
 }
 
 function renderTweets(data){
-  //newest first
   $tweets = data.map(x => createTweetElement(x));
   $('#tweets-container').append($tweets);
 }
@@ -74,7 +71,7 @@ function loadTweets(){
 
 
 $(document).ready(function(){
-  //renderTweets(data);
+
   loadTweets();
 
   $('#toggle-composition').on("click", function(event){
@@ -87,7 +84,6 @@ $(document).ready(function(){
   });
 
   $('.new-tweet form').on("submit", function(event){
-
     event.preventDefault();
 
     const data = $(this).serialize();
