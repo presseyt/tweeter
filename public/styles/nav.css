@@ -22,5 +22,8 @@
 
 #toggle-composition{
   float: right;
-  margin: 28px;
+  height: 30px;
+  margin: 25px;  /*centers it vertically*/
+  border-radius: 7px;
+  border: none;
 }
