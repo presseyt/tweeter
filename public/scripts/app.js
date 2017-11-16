@@ -95,28 +95,24 @@ $(document).ready(function(){
 
     if (text.length === 0){
       $('.error').text('Tweet is empty');
+      $('.new-tweet textarea').focus()
     } else if (text.length > 140){
       $('.error').text('Tweet too long');
+      $('.new-tweet textarea').focus()
     } else {
       $.post("/tweets", data, () => {
         //clear text and any error message
         $(this).find('textarea').val('');
-        $('.error').text('');
 
         //reload all the tweets!
         loadTweets();
       });
     }
+  });
 
-    //here is some ajax code that  will post data:
-    // $.ajax({
-    //   url: "/tweets",
-    //   method: "POST",
-    //   data: data,
-    //   success(){
-    //     console.log("success");
-    //   }
-    // });
+  //whenever they type, get rid of error message
+  $('.new-tweet textarea').on('keydown', function(){
+    $('.error').text('');
   });
 
 });
