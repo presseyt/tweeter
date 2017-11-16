@@ -18,7 +18,6 @@ function escape(str) {
 
 function doSomethingToDates(tweetDate){
   let elapsed = Date.now() - tweetDate;
-  console.log(elapsed);
   elapsed /= 1000;
   if (elapsed < 60) return `${Math.floor(elapsed)} seconds ago`;
   elapsed /=  60;
@@ -58,7 +57,7 @@ function createTweetElement(tweetInfo){
 
 function renderTweets(data){
   //newest first
-  $tweets = data.map(x => createTweetElement(x)).reverse();
+  $tweets = data.map(x => createTweetElement(x));
   $('#tweets-container').append($tweets);
 }
 
