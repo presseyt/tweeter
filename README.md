@@ -4,7 +4,7 @@ Tweeter is a simple, single-page Twitter clone, built using Node, Express, and M
 
 ## Final Project
 
-!["screenshot"](#)
+!["screenshot"](https://github.com/presseyt/tweeter/blob/master/docs/tweeter-app.png?raw=true)
 
 ## Dependencies
 
