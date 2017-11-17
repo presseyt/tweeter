@@ -34,7 +34,7 @@ function escape(str) {
 
 function createTweetElement(tweetInfo){
   return $(`
-    <article class="tweet-container">
+    <article class="tweet-container" data-tweet-id="${tweetInfo['_id']}">
       <header class="tweet-header">
         <img class="profile-pic" src=${escape(tweetInfo.user.avatars.regular)}>
         <h2 class="profile-name">${escape(tweetInfo.user.name)}</h2>
@@ -46,7 +46,7 @@ function createTweetElement(tweetInfo){
       <footer class="tweet-footer">
         Created: ${displayDatesAsText(tweetInfo.created_at)}
         <span class="tweet-actions">
-             🚩 🔃 💖 <p>0</p>
+             🚩 🔃 💖 <p>${tweetInfo.likes}</p>
         </span>
       </footer>
     </article>

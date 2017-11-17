@@ -29,7 +29,8 @@ module.exports = function(DataHelpers) {
       content: {
         text: req.body.text
       },
-      created_at: Date.now()
+      created_at: Date.now(),
+      likes: 0
     };
 
     DataHelpers.saveTweet(tweet, (err) => {
@@ -42,14 +43,25 @@ module.exports = function(DataHelpers) {
   });
 
   tweetsRoutes.post("/:id/like", function(req,res){
-    console.log(`Add a like to ${req.params.id}`);
-    //NEED TO ADD A LIKE TO THE DATABASE!!
-    res.status(201).send();
+    console.log('liking', req.params.id);
+    DataHelpers.addLike(req.params.id, err => {
+      if (err){
+        res.status(500).json({error: err.message});
+      } else {
+        res.status(201).send();
+      }
+    });
   });
+
   tweetsRoutes.post("/:id/dislike", function(req,res){
-    console.log(`Add a like to ${req.params.id}`);
-    //NEED TO REMOVE A LIKE TO THE DATABASE!!
-    res.status(201).send();
+    console.log('disliking', req.params.id);
+    DataHelpers.removeLike(req.params.id, err => {
+      if (err){
+        res.status(500).json({error: err.message});
+      } else {
+        res.status(201).send();
+      }
+    });
   });
 
   return tweetsRoutes;

@@ -7,8 +7,11 @@ $(document).ready( function(){
       const $likeCounter = $(this).find('.tweet-actions p');
       const path = $likeCounter.hasClass('liked') ? 'dislike' : 'like';
 
-      $.post(`/tweets/200/${path}`, "", () => {
+      const tweetId = $(this).data("tweet-id");
+
+      $.post(`/tweets/${tweetId}/${path}`, "data", () => {
         //success
+        console.log('successfully posted', path);
         if (path == 'like'){
           $likeCounter.text(Number($likeCounter.text()) + 1);
           $likeCounter.addClass('liked');
