@@ -43,7 +43,7 @@
 #tweets-container section p{
   margin: 0;
   font-size: 1.2em;
-  word-break: break-all;
+  word-break: break-word;
 
   display: inline-block;      /*for vertical align*/
   vertical-align: middle;     /*for vertical align*/ /*why is this so hard?*/
@@ -59,7 +59,7 @@
 
 #tweets-container .tweet-actions{
   float: right;
-  opacity: 0.1;
+  opacity: 0.3;
 }
 
 #tweets-container:hover .tweet-actions{
