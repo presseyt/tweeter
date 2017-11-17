@@ -62,7 +62,7 @@
   opacity: 0.3;
 }
 
-#tweets-container:hover .tweet-actions{
+#tweets-container .tweet-container:hover .tweet-actions{
   opacity: 1;
 }
 
