@@ -13,10 +13,10 @@ function displayDatesAsText(tweetDate){
     {measurment: "century", quantity: 10}
   ];
   let elapsed = Date.now() - tweetDate;
-
   if (elapsed < 0) {
     return "in the future!";  //just to be safe ;)
   }
+
   for(measure of time){
     if (elapsed < measure.quantity){
       return `${Math.floor(elapsed)} ${measure.measurment}${elapsed >= 2 ? "s" : ""} ago`;
@@ -46,7 +46,7 @@ function createTweetElement(tweetInfo){
       <footer class="tweet-footer">
         Created: ${displayDatesAsText(tweetInfo.created_at)}
         <span class="tweet-actions">
-             🚩 🔃 💖
+             🚩 🔃 💖 <p>0</p>
         </span>
       </footer>
     </article>
@@ -65,6 +65,8 @@ function loadTweets(){
       //clear all tweets, then render new tweets
       $('#tweets-container').empty();
       renderTweets(data);
+      //trigger a custom event
+      $('#tweets-container').trigger("loaded");
     }
   });
 }

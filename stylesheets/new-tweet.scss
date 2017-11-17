@@ -1,0 +1,31 @@
+.new-tweet{
+  margin: 2em;
+  padding: 1em;
+
+  background-color: #eee;
+
+  border: solid #ccc 1px;
+  border-radius: 5px;
+
+}
+
+.new-tweet h2 {
+ border-bottom: solid black thin;
+}
+
+.new-tweet textarea{
+  width: 100%;
+}
+
+.counter{
+  float: right;
+}
+
+.tooLong{
+  color: red;
+}
+
+p.error{
+  display: inline;
+  color: red;
+}

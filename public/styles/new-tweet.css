@@ -1,31 +1,22 @@
-.new-tweet{
+.new-tweet {
   margin: 2em;
   padding: 1em;
-
   background-color: #eee;
-
   border: solid #ccc 1px;
-  border-radius: 5px;
-
-}
+  border-radius: 5px; }
 
 .new-tweet h2 {
- border-bottom: solid black thin;
-}
+  border-bottom: solid black thin; }
 
-.new-tweet textarea{
-  width: 100%;
-}
+.new-tweet textarea {
+  width: 100%; }
 
-.counter{
-  float: right;
-}
+.counter {
+  float: right; }
 
-.tooLong{
-  color: red;
-}
+.tooLong {
+  color: red; }
 
-p.error{
+p.error {
   display: inline;
-  color: red;
-}
+  color: red; }

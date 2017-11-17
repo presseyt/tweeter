@@ -1,79 +1,64 @@
-
-#tweets-container .tweet-container{
+#tweets-container .tweet-container {
   border: solid #ccc thin;
   border-radius: 10px;
   margin: 2em;
+  opacity: 0.75; }
 
-  opacity: 0.75;
-}
-
-#tweets-container .tweet-header{
+#tweets-container .tweet-header {
   height: 80px;
   background-color: #eee;
   padding: 10px;
-
   border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
+  border-top-right-radius: 10px; }
 
-#tweets-container .profile-pic{
+#tweets-container .profile-pic {
   height: 60px;
   width: 60px;
+  display: inline-block; }
 
-  display: inline-block;
-}
-
-#tweets-container .profile-name{
+#tweets-container .profile-name {
   margin: 0;
   vertical-align: top;
-  display: inline-block;
-}
+  display: inline-block; }
 
-#tweets-container .profile-handle{
-  float: right;
-}
+#tweets-container .profile-handle {
+  float: right; }
 
-#tweets-container section{
+#tweets-container section {
   opacity: 1;
   padding: 10px;
   height: 100px;
-  line-height: 80px;  /*must be height - 2 * padding*/ /*for vertical align*/
-}
+  line-height: 80px;
+  /*must be height - 2 * padding*/
+  /*for vertical align*/ }
 
-#tweets-container section p{
+#tweets-container section p {
   margin: 0;
   font-size: 1.2em;
   word-break: break-word;
+  display: inline-block;
+  /*for vertical align*/
+  vertical-align: middle;
+  /*for vertical align*/
+  /*why is this so hard?*/
+  line-height: normal;
+  /*for vertical align*/ }
 
-  display: inline-block;      /*for vertical align*/
-  vertical-align: middle;     /*for vertical align*/ /*why is this so hard?*/
-  line-height: normal;        /*for vertical align*/
-}
-
-#tweets-container .tweet-footer{
+#tweets-container .tweet-footer {
   opacity: 1;
   padding: 10px;
   height: 40px;
-  border-top: solid #ccc thin;
-}
+  border-top: solid #ccc thin; }
 
-#tweets-container .tweet-actions{
+#tweets-container .tweet-actions {
   float: right;
-  opacity: 0.3;
-}
+  opacity: 0.3; }
+  #tweets-container .tweet-actions p {
+    display: inline; }
 
-#tweets-container .tweet-container:hover .tweet-actions{
+#tweets-container .tweet-container:hover .tweet-actions {
+  opacity: 1; }
+
+#tweets-container .tweet-container:hover {
   opacity: 1;
-}
-
-#tweets-container .tweet-container:hover{
-  opacity: 1;
-  border-color: #999;
-}
-
-
-
-
-
-
-
+  border-color: #999; }

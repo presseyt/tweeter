@@ -41,6 +41,17 @@ module.exports = function(DataHelpers) {
     });
   });
 
+  tweetsRoutes.post("/:id/like", function(req,res){
+    console.log(`Add a like to ${req.params.id}`);
+    //NEED TO ADD A LIKE TO THE DATABASE!!
+    res.status(201).send();
+  });
+  tweetsRoutes.post("/:id/dislike", function(req,res){
+    console.log(`Add a like to ${req.params.id}`);
+    //NEED TO REMOVE A LIKE TO THE DATABASE!!
+    res.status(201).send();
+  });
+
   return tweetsRoutes;
 
-}
+};
