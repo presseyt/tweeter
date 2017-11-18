@@ -23,8 +23,23 @@ body {
 
 
 main {
-  width: 450px;
+  max-width: 450px;
+  min-width: 360px;   /*new*/
   margin: auto;
   background: white;
   padding-top: 80px;
+}
+
+@media (min-width: 900px){
+  main{
+    max-width: 900px;
+    #tweets-container{
+      .tweet-container, .new-tweet{
+      display: inline-table;
+      width: 401px;
+      margin-right: 0px;
+      margin-top: 0px;
+      }
+    }
+  }
 }

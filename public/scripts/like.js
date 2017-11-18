@@ -3,7 +3,7 @@
 $(document).ready( function(){
   //a custom event that fires whenever new tweets are added to the #tweets-container
   $('#tweets-container').on('loaded', function(){
-    $('.tweet-container').on('click', function(event){
+    $('.tweet-container').on('click', function(event){   //Need to change to .tweet-actions
       const $likeCounter = $(this).find('.tweet-actions p');
       const path = $likeCounter.hasClass('liked') ? 'dislike' : 'like';
 

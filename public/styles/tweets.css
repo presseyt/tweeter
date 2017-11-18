@@ -14,10 +14,11 @@
 #tweets-container .profile-pic {
   height: 60px;
   width: 60px;
-  display: inline-block; }
+  float: left;
+  /*new*/ }
 
 #tweets-container .profile-name {
-  margin: 0;
+  margin: 0 0 0 1em;
   vertical-align: top;
   display: inline-block; }
 
@@ -27,7 +28,8 @@
 #tweets-container section {
   opacity: 1;
   padding: 10px;
-  height: 100px;
+  min-height: 100px;
+  /*NEW - changed from height to min-height*/
   line-height: 80px;
   /*must be height - 2 * padding*/
   /*for vertical align*/ }
