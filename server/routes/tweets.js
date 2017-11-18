@@ -43,7 +43,6 @@ module.exports = function(DataHelpers) {
   });
 
   tweetsRoutes.post("/:id/like", function(req,res){
-    console.log('liking', req.params.id);
     DataHelpers.addLike(req.params.id, err => {
       if (err){
         res.status(500).json({error: err.message});
@@ -54,7 +53,6 @@ module.exports = function(DataHelpers) {
   });
 
   tweetsRoutes.post("/:id/dislike", function(req,res){
-    console.log('disliking', req.params.id);
     DataHelpers.removeLike(req.params.id, err => {
       if (err){
         res.status(500).json({error: err.message});

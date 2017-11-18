@@ -24,12 +24,13 @@ body {
 
 main {
   max-width: 450px;
-  min-width: 360px;   /*new*/
+  min-width: 360px;
   margin: auto;
   background: white;
   padding-top: 80px;
 }
 
+/*Handles the responsive design.  Move to another file?*/
 @media (min-width: 900px){
   main{
     max-width: 900px;

@@ -20,7 +20,7 @@
   height: 60px;
   width: 60px;
 
-  float: left; /*new*/
+  float: left;
 }
 
 #tweets-container .profile-name{
@@ -36,7 +36,7 @@
 #tweets-container section{
   opacity: 1;
   padding: 10px;
-  min-height: 100px;   /*NEW - changed from height to min-height*/
+  min-height: 100px;
   line-height: 80px;  /*must be height - 2 * padding*/ /*for vertical align*/
 }
 

@@ -1,13 +1,14 @@
 
 
 $(document).ready( function(){
-  //a custom event that fires whenever new tweets are added to the #tweets-container
   $('#tweets-container').on('loaded', function(){
-    $('.tweet-container').on('click', function(event){   //Need to change to .tweet-actions
-      const $likeCounter = $(this).find('.tweet-actions p');
-      const path = $likeCounter.hasClass('liked') ? 'dislike' : 'like';
+    //a custom event that fires whenever new tweets are added to the #tweets-container
+    //other people used $(body).on('click', '.tweet-actions', callback) which works much cleaner
 
-      const tweetId = $(this).data("tweet-id");
+    $('.tweet-actions').on('click', function(event){
+      const $likeCounter = $(this).find('p');
+      const tweetId = $(this).closest('.tweet-container').data("tweet-id");
+      const path = $likeCounter.hasClass('liked') ? 'dislike' : 'like';
 
       $.post(`/tweets/${tweetId}/${path}`, "data", () => {
         //success
@@ -22,6 +23,7 @@ $(document).ready( function(){
       }).fail(function(){
          //failure
         console.log('handling errors like a boss');
+        //could be improved on.
       });
     });
   });

@@ -25,7 +25,6 @@ module.exports = function makeDataHelpers(db) {
       var objId = new ObjectID(id);
 
       db.collection("tweets").updateOne({"_id": objId}, {$inc: {likes: 1}}, callback);
-      //database stuff
     },
 
     // Removes a like
@@ -36,7 +35,6 @@ module.exports = function makeDataHelpers(db) {
       var objId = new ObjectID(id);
 
       db.collection("tweets").updateOne({"_id": objId}, {$inc: {likes: -1}}, callback);
-      //database stuff
     }
   };
 };
