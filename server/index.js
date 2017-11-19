@@ -15,7 +15,7 @@ app.use(express.static("public"));
 //initialize mongodb:
 const MongoClient = require("mongodb").MongoClient;
 const MONGODB_URI = process.env.MONGODB_URI;
-console.log(MONGODB_URI);
+
 MongoClient.connect(MONGODB_URI, (err, db) => {
   if (err) {
     console.error(`Failed to connect to database: ${MONGODB_URI}`);
